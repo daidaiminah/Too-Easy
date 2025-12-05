@@ -109,25 +109,25 @@ The website will be available at http://localhost:3000
 
 The website uses product images located in the root directory. These images are used throughout the website for product displays, banners, and marketing content.
 
-## Environment Variables
+    ## Environment Variables
 
-### Client (.env.local)
-```
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-NEXT_PUBLIC_STRIPE_KEY=pk_test_yourteststripekeyhere
-```
+    ### Client (.env.local)
+    ```
+    NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    NEXT_PUBLIC_STRIPE_KEY=pk_test_yourteststripekeyhere
+    ```
 
-### Server (.env)
-```
-PORT=5000
-DB_NAME=tooeasydb
-DB_USER=postgres
-DB_PASS=yourpassword
-DB_HOST=localhost
-JWT_SECRET=ultrasecret
-STRIPE_SECRET_KEY=sk_test_yourstripesecretkeyhere
-```
+    ### Server (.env)
+    ```
+    PORT=5000
+    DB_NAME=tooeasydb
+    DB_USER=postgres
+    DB_PASS=yourpassword
+    DB_HOST=localhost
+    JWT_SECRET=ultrasecret
+    STRIPE_SECRET_KEY=sk_test_yourstripesecretkeyhere
+    ```
 
-## License
+    ## License
 
-This project is created for demonstration purposes.
+    This project is created for demonstration purposes.
