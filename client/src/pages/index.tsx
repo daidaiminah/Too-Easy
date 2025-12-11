@@ -5,11 +5,11 @@ import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import { ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import img1 from "/public/images/IMG-20250521-WA0004.jpg"
-import img2 from "/public/images/IMG-20250521-WA0005.jpg"
-import img3 from "/public/images/IMG-20250521-WA0006.jpg"
+import img1 from "/public/images/heroimg1.png"
+import img2 from "/public/images/heroimg2.png"
+import img3 from "/public/images/heroimg3.png"
 
-import img4 from "/public/images/IMG-20250521-WA0024.jpg"
+import img4 from "/public/images/heroimg4.png"
 import img5 from "/public/images/IMG-20250521-WA0023.jpg"
 import img6 from "/public/images/IMG-20250521-WA0018.jpg"
 import img7 from "/public/images/IMG-20250521-WA0020.jpg"
@@ -32,14 +32,14 @@ const Home: NextPage = () => {
   }, []);
   // Featured categories
   const categories = [
-    { name: "Men's Collection", image: img1, href: "/products/mens" },
-    { name: "Women's Collection", image: img2, href: "/products/womens" },
-    { name: "Accessories", image: img3, href: "/products/accessories" }
+    { name: "Men's Collection", image: img5, href: "/products/mens" },
+    { name: "Women's Collection", image: img6, href: "/products/womens" },
+    { name: "Accessories", image: img7, href: "/products/accessories" }
   ];
 
   // Featured products
   const featuredProducts = [
-    { id: '1', name: 'Minimal Logo Tee', price: 35, image: img4, slug: 'minimal-logo-tee' },
+    { id: '1', name: 'Minimal Logo Tee', price: 35, image: img5, slug: 'minimal-logo-tee' },
     { id: '2', name: 'Urban Hoodie', price: 65, image: img5, slug: 'urban-hoodie' },
     { id: '3', name: 'Street Smart Cap', price: 25, image: img6, slug: 'street-smart-cap' },
     { id: '4', name: 'Comfort Track Pants', price: 55, image: img7, slug: 'comfort-track-pants' }
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
         {/* Blurred Background Image */}
         <div className="absolute inset-0">
           <Image 
-            src={img1}
+            src={img2}
             alt="Too Easy Fashion Background"
             fill
             style={{ objectFit: 'cover' }}
@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         
-        <div className="relative h-full container-custom flex items-center px-4">
+        <div className="relative h-full mt-16 container-custom flex items-center px-4">
           {/* Left Side - Text Content */}
           <div className="w-full lg:w-1/2 text-left">
             <motion.div
@@ -81,14 +81,14 @@ const Home: NextPage = () => {
               <div className="flex flex-wrap gap-4">
                 <Link 
                   href="/products" 
-                  className="bg-white text-gray-900 font-medium px-8 py-3 rounded-md hover:bg-gray-100 transition duration-300 inline-flex items-center"
+                  className="bg-white text-gray-900 font-medium px-5 py-2 rounded-full hover:bg-gray-100 transition duration-300 inline-flex items-center"
                 >
                   Shop Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
                 <Link 
                   href="/collections" 
-                  className="border-2 border-white text-white font-medium px-8 py-3 rounded-md hover:bg-white hover:bg-opacity-10 transition duration-300"
+                  className="border-2 border-white text-white font-medium px-5 py-2 flex items-center rounded-full hover:bg-white hover:bg-opacity-10 transition duration-300"
                 >
                   View Collection
                 </Link>
@@ -388,15 +388,15 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      {/* Feature Section */}
+      {/* Commitment Section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative h-96">
                 <Image
-                  src="/IMG-20250521-WA0013.jpg"
-                  alt="Our Quality"
+                  src={img7}
+                  alt="Too Easy Quality"
                   fill
                   style={{ objectFit: 'cover' }}
                 />

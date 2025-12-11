@@ -226,35 +226,45 @@ const ProductDetail: NextPage<ProductProps> = ({ product }) => {
   );
 };
 
+// This function gets called at build time
+// It pre-renders all product pages statically
 export const getStaticPaths: GetStaticPaths = async () => {
-  // In a real app, fetch products from an API
+  // In a production app, you would fetch this from an API
   const paths = productData.map((product) => ({
     params: { slug: product.slug },
   }));
 
   return {
     paths,
-    fallback: 'blocking', // Show 404 for non-existent slugs
+    fallback: false, // Return 404 for non-existent slugs in static export
   };
 };
 
+// This function gets called at build time
+// It pre-renders the page at build time using the props returned
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // In a real app, fetch the specific product from an API
-  const slug = params?.slug as string;
-  const product = productData.find((p) => p.slug === slug);
+  try {
+    const slug = params?.slug as string;
+    // In a production app, you would fetch this from an API
+    const product = productData.find((p) => p.slug === slug);
 
-  if (!product) {
+    if (!product) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        product,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching product:', error);
     return {
       notFound: true,
     };
   }
-
-  return {
-    props: {
-      product,
-    },
-    revalidate: 60, // Re-generate page every 60 seconds if needed
-  };
 };
 
 export default ProductDetail;

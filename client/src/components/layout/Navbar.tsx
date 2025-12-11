@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
   return (
     <div>
       {/* Top Bar - Disappears on scroll */}
-      <div className={`bg-blue-500 text-white text-sm py-2 transition-all duration-300 fixed top-0 left-0 right-0 z-40 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
+      <div className={`bg-blue-400 text-white mb-0 text-sm py-2 transition-all duration-300 fixed top-0 left-0 right-0 z-40 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-auto'}`}>
         <div className="container-custom flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
           <div className="flex items-center space-x-6">
             <div className="flex items-center">
@@ -195,14 +195,14 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Main Navigation - Fixed at the top */}
-      <nav className={`bg-white shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md' : 'top-10'}`}>
-        <div className="container-custom py-3">
+      <nav className={`bg-black shadow-sm fixed pt-2 top-0 left-0 right-0 z-30 transition-all duration-300 ${isScrolled ? 'shadow-md' : 'top-10'}`}>
+        <div className="container-custom">
           <div className="flex items-center justify-between">
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-800 hover:text-blue-600"
+                className="text-white hover:text-blue-600"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -211,8 +211,8 @@ const Navbar: React.FC = () => {
 
             {/* Logo */}
             <div className="flex-1 flex items-center justify-center md:justify-start">
-              <Link href="/" className="text-2xl font-bold text-gray-800">
-                <Image src={TooEazyLogo} alt="TooEazy Logo" width={100} height={50} />
+              <Link href="/" className="">
+                <Image src={TooEazyLogo} alt="TooEazy Logo" width={70} height={40} />
               </Link>
             </div>
 
@@ -223,7 +223,7 @@ const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   className={`font-medium hover:text-blue-600 transition-colors ${
-                    router.pathname === link.href ? 'text-blue-600' : 'text-gray-800'
+                    router.pathname === link.href ? 'text-blue-600' : 'text-white'
                   }`}
                 >
                   {link.name}
@@ -232,20 +232,9 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Icons */}
-            <div className="flex items-center space-x-6">
-              {/* More Menu Button */}
-              <button 
-                onClick={() => setShowMoreMenu(!showMoreMenu)}
-                className="text-gray-700 hover:text-blue-600 transition-colors more-menu-button"
-                aria-label="More information"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              </button>
-              
-              <div className="h-6 w-px bg-gray-300"></div>
-              <Link href="/wishlist" className="text-gray-700 hover:text-blue-600 transition-colors relative group">
+            <div className="flex items-center space-x-6 ml-4">
+              <div className="h-6 w-px bg-white"></div>
+              <Link href="/wishlist" className="text-white hover:text-blue-600 transition-colors relative group">
                 <Heart className="h-5 w-5" />
                 <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   0
@@ -253,7 +242,7 @@ const Navbar: React.FC = () => {
                 <span className="sr-only">Wishlist</span>
               </Link>
               
-              <Link href="/compare" className="text-gray-700 hover:text-blue-600 transition-colors relative group">
+              <Link href="/compare" className="text-white hover:text-blue-600 transition-colors relative group">
                 <Check className="h-5 w-5" />
                 <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   0
@@ -261,11 +250,11 @@ const Navbar: React.FC = () => {
                 <span className="sr-only">Compare</span>
               </Link>
               
-              <div className="h-6 w-px bg-gray-300"></div>
+              <div className="h-6 w-px bg-white"></div>
               
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-white hover:text-blue-600 transition-colors"
                 aria-label="Search"
               >
                 <Search className="h-5 w-5" />
@@ -273,7 +262,7 @@ const Navbar: React.FC = () => {
 
               <Link 
                 href={isAuthenticated ? '/account' : '/login'} 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-white hover:text-blue-600 transition-colors"
                 aria-label={isAuthenticated ? 'My Account' : 'Login'}
               >
                 <User className="h-5 w-5" />
@@ -281,7 +270,7 @@ const Navbar: React.FC = () => {
 
               <Link 
                 href="/cart" 
-                className="text-gray-700 hover:text-blue-600 transition-colors relative"
+                className="text-white hover:text-blue-600 transition-colors relative"
                 aria-label="Cart"
               >
                 <ShoppingBag className="h-5 w-5" />
@@ -291,6 +280,18 @@ const Navbar: React.FC = () => {
                   </span>
                 )}
               </Link>
+
+              <div className="h-6 w-px bg-white"></div>
+                {/* More Menu Button */}
+              <button 
+                onClick={() => setShowMoreMenu(!showMoreMenu)}
+                className="text-white hover:text-blue-600 transition-colors more-menu-button"
+                aria-label="More information"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -337,17 +338,19 @@ const Navbar: React.FC = () => {
 
       {/* More Info Sidebar */}
       <div 
-        className={`fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-50 more-menu ${
+        className={`fixed inset-y-0 right-0 w-full max-w-md bg-black shadow-xl transform transition-transform duration-300 ease-in-out z-50 more-menu ${
           showMoreMenu ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="h-full flex flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b">
-            <div className="text-2xl font-bold">ADDINA</div>
+          <div className="flex items-center justify-between p-6 border-b border-gray-600">
+            <Link href="/" className="">
+              <Image src={TooEazyLogo} alt="TooEazy Logo" width={70} height={40} />
+            </Link>
             <button 
               onClick={() => setShowMoreMenu(false)}
-              className="text-gray-500 hover:text-gray-700"
+              className="text-white hover:text-blue-600"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
@@ -355,47 +358,47 @@ const Navbar: React.FC = () => {
           </div>
           
           {/* Search */}
-          <div className="p-6 border-b">
+          <div className="p-6 border-b border-gray-600">
             <div className="relative">
               <input
                 type="text"
                 placeholder="What are you searching for?"
-                className="w-full border-b border-gray-300 py-2 px-4 focus:outline-none focus:border-blue-600"
+                className="w-full border-b border-white py-2 px-4 focus:outline-none focus:border-blue-600"
               />
-              <Search className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
+              <Search className="absolute right-3 top-3 h-5 w-5 text-white" />
             </div>
           </div>
           
           {/* Contact Info */}
-          <div className="p-6 border-b">
+          <div className="p-6 border-b border-gray-600">
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-4">
               <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-gray-500 mt-0.5 mr-3 flex-shrink-0" />
-                <span>12/A, Mirnada City Tower, NYC</span>
+                <MapPin className="h-5 w-5 text-white mt-0.5 mr-3 flex-shrink-0" />
+                <span className="text-white">12/A, Mirnada City Tower, NYC</span>
               </div>
               <div className="flex items-center">
-                <Phone className="h-5 w-5 text-gray-500 mr-3" />
-                <a href="tel:+088889797697" className="hover:text-blue-600">+088 88979 7697</a>
+                <Phone className="h-5 w-5 text-white mr-3" />
+                <a href="tel:+088889797697" className="hover:text-blue-600 text-white">+088 88979 7697</a>
               </div>
               <div className="flex items-center">
-                <Mail className="h-5 w-5 text-gray-500 mr-3" />
-                <a href="mailto:support@mail.com" className="hover:text-blue-600">support@mail.com</a>
+                <Mail className="h-5 w-5 text-white mr-3" />
+                <a href="mailto:support@mail.com" className="hover:text-blue-600 text-white">support@mail.com</a>
               </div>
             </div>
             
             {/* Social Icons */}
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-gray-500 hover:text-blue-600">
+              <a href="#" className="text-white hover:text-blue-600">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-600">
+              <a href="#" className="text-white hover:text-blue-600">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-600">
+              <a href="#" className="text-white hover:text-blue-600">
                 <Youtube className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-600">
+              <a href="#" className="text-white hover:text-blue-600">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -408,7 +411,7 @@ const Navbar: React.FC = () => {
                 <li key={`mobile-${link.name}`}>
                   <Link
                     href={link.href}
-                    className="block py-2 text-gray-700 hover:text-blue-600"
+                    className="block py-2 text-white hover:text-blue-600"
                     onClick={() => setShowMoreMenu(false)}
                   >
                     {link.name}
@@ -420,7 +423,7 @@ const Navbar: React.FC = () => {
                   <li>
                     <Link 
                       href="/account" 
-                      className="block py-2 text-gray-700 hover:text-blue-600"
+                      className="block py-2 text-white hover:text-blue-600"
                       onClick={() => setShowMoreMenu(false)}
                     >
                       My Account
@@ -432,7 +435,7 @@ const Navbar: React.FC = () => {
                         handleLogout();
                         setShowMoreMenu(false);
                       }}
-                      className="block py-2 text-gray-700 hover:text-blue-600"
+                      className="block py-2 text-white hover:text-blue-600"
                     >
                       Logout
                     </button>
@@ -443,7 +446,7 @@ const Navbar: React.FC = () => {
                   <li>
                     <Link 
                       href="/login" 
-                      className="block py-2 text-gray-700 hover:text-blue-600"
+                      className="block py-2 text-white hover:text-blue-600"
                       onClick={() => setShowMoreMenu(false)}
                     >
                       Login
@@ -452,7 +455,7 @@ const Navbar: React.FC = () => {
                   <li>
                     <Link 
                       href="/register" 
-                      className="block py-2 text-gray-700 hover:text-blue-600"
+                      className="block py-2 text-white hover:text-blue-600"
                       onClick={() => setShowMoreMenu(false)}
                     >
                       Register

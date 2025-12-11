@@ -12,24 +12,51 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ['localhost'],
-    unoptimized: true
-  },
-  // Remove output: 'export' if you want to use ISR
-  // Or keep it and modify your dynamic routes to work with static export
+  // Enable static exports
   output: 'export',
   
-  // Add this if you want to keep output: 'export'
+  // Image optimization configuration
+  images: {
+    domains: ['localhost'],
+    unoptimized: true, // Required for static exports
+  },
+  
+  // Add trailing slash for static exports
   trailingSlash: true,
   
-  // If you need to use dynamic routes with export, you'll need to define them here
+  // React Strict Mode
+  reactStrictMode: true,
+  
+  // Define the export path map for static generation
   exportPathMap: async function() {
-    return {
+    // Define your static paths here
+    const paths = {
       '/': { page: '/' },
       '/products': { page: '/products' },
-      // Add other static paths here
+      // Add more static paths as needed
     };
+    
+    // Add dynamic product pages
+    const products = [
+      'urban-hoodie',
+      'minimal-logo-tee',
+      'street-smart-cap',
+      'comfort-track-pants'
+    ];
+    
+    products.forEach(product => {
+      paths[`/products/${product}`] = { 
+        page: '/products/[slug]',
+        query: { slug: product }
+      };
+    });
+    
+    return paths;
+  },
+  
+  // Webpack configuration (optional)
+  webpack: (config) => {
+    return config;
   }
 }
 

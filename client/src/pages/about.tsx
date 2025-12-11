@@ -3,6 +3,13 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import Layout from '@/components/layout/Layout';
 import { motion } from 'framer-motion';
+import Hero from "/public/images/IMG-20250521-WA0011.jpg"
+import DesignProcess from "/public/images/IMG-20250521-WA0007.jpg"
+import Collection from "/public/images/IMG-20250521-WA0014.jpg"
+import Team from "/public/images/IMG-20250521-WA0041.jpg"
+import Alex from "/public/images/founder2.png"
+import Jordan from "/public/images/founder3.png"
+import Morgan from "/public/images/founder1.png"
 
 const AboutPage: NextPage = () => {
   return (
@@ -14,7 +21,7 @@ const AboutPage: NextPage = () => {
       <section className="relative h-96">
         <div className="absolute inset-0">
           <Image 
-            src="/IMG-20250521-WA0011.jpg"
+            src={Hero}
             alt="About Too Easy"
             fill
             style={{ objectFit: 'cover' }}
@@ -52,7 +59,7 @@ const AboutPage: NextPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
               <div className="relative h-80">
                 <Image
-                  src="/IMG-20250521-WA0007.jpg"
+                  src={DesignProcess}
                   alt="Too Easy Design Process"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -61,7 +68,7 @@ const AboutPage: NextPage = () => {
               </div>
               <div className="relative h-80">
                 <Image
-                  src="/IMG-20250521-WA0014.jpg"
+                  src={Collection}
                   alt="Too Easy Collection"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -110,9 +117,9 @@ const AboutPage: NextPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="relative w-64 h-64 mx-auto mb-6">
+              <div className="relative w-64 h-64 mx-auto mt-6">
                 <Image
-                  src="/IMG-20250521-WA0041.jpg"
+                  src={Jordan}
                   alt="Alex Chen - Founder & Creative Director"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -129,7 +136,7 @@ const AboutPage: NextPage = () => {
             <div className="text-center">
               <div className="relative w-64 h-64 mx-auto mb-6">
                 <Image
-                  src="/IMG-20250521-WA0038.jpg"
+                  src={Alex}
                   alt="Jordan Taylor - Head of Design"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -146,7 +153,7 @@ const AboutPage: NextPage = () => {
             <div className="text-center">
               <div className="relative w-64 h-64 mx-auto mb-6">
                 <Image
-                  src="/IMG-20250521-WA0039.jpg"
+                  src={Morgan}
                   alt="Morgan Lee - Sustainability Lead"
                   fill
                   style={{ objectFit: 'cover' }}
